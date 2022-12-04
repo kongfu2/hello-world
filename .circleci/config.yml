@@ -1,25 +1,8 @@
 version: 2.1
 jobs:
-  print_hello:
+   print_FADY:
     docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello!"
-  print_world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - run:
-          name: "Say World"
-          command: "echo , World!"
-
-  print_FADY:
-    docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
     steps:
       - checkout
       - run:
@@ -28,11 +11,5 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - print_hello
-      - print_world:
-          requires:
-            - print_hello
-      - print_FADY:
-          requires:
-            - print_hello
-            - print_world
+      - print_FADY
+           
