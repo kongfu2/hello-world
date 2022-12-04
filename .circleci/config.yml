@@ -17,8 +17,10 @@ jobs:
           name: "Say World"
           command: "echo , World!"
 workflows:
-  say-hello-workflow:
+  welcome-workflow:
     jobs:
       - print_hello
-      - print_world
+      - print_world:
+          requires:
+            - print_hello
 
