@@ -3,7 +3,7 @@ version: 2.1
 workflows:
   build:
     jobs:
-      - print_FADY
+      - build
 jobs:
    build:
     docker:
@@ -12,4 +12,6 @@ jobs:
       - checkout
       - run:
           name: "Say World"
-          command: echo $FADY
+          command: |
+            echo $FADY
+           
