@@ -1,6 +1,11 @@
 version: 2.1
+
+workflows:
+  build:
+    jobs:
+      - print_FADY
 jobs:
-   print_FADY:
+   build:
     docker:
       - image: cimg/base:2020.01
     steps:
@@ -8,8 +13,3 @@ jobs:
       - run:
           name: "Say World"
           command: echo $FADY
-workflows:
-  say-hello-workflow:
-    jobs:
-      - print_FADY
-           
