@@ -16,11 +16,23 @@ jobs:
       - run:
           name: "Say World"
           command: "echo , World!"
+
+  print_FADY:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "Say World"
+          command: "echo $FADY"
 workflows:
-  welcome-workflow:
+  say-hello-workflow:
     jobs:
       - print_hello
       - print_world:
           requires:
             - print_hello
-
+      - print_FADY:
+          requires:
+            - print_hello
+            - print_world
