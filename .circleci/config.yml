@@ -12,5 +12,6 @@ jobs:
       - checkout
       - run:
           name: "Say World"
-          command: echo $FADY
+          command: |
+            echo $FADY
            
